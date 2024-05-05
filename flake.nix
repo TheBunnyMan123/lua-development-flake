@@ -16,6 +16,7 @@
       devShell = pkgs.mkShell {
         packages = with pkgs; [
           lua
+          bashInteractive
           (vscode-with-extensions.override {
             vscode = vscodium;
             vscodeExtensions = with vscode-extensions; [
