@@ -11,12 +11,12 @@
     let
       pkgs = import nixpkgs {
         system = "${system}";
-        config.allowUnfree = true;
       };
     in {
       devShell = pkgs.mkShell {
         packages = with pkgs; [
           (vscode-with-extensions.override {
+            vscode = vscodium;
             vscodeExtensions = with vscode-extensions; [
               sumneko.lua
             ];
@@ -24,7 +24,7 @@
         ];
 
         shellHook = ''
-          exec code .
+          exec codium .
         '';
       };
     }
